@@ -21,49 +21,79 @@ send_telegram_message("Search pages parsing is finished")
 #######################################################################3
 # DO NOT RUN WIP
 
-from py.utils.csv_utils import split_csv, read_splitted_csv
-split_csv_file("data_load\\csv_offer_pages_parsed\\offer_page_parsed.csv",
-               "data_load\\csv_offer_pages_parsed",
-               "offer_pages_parsed",
-               40,
-               1000
-)
-
-df = read_splitted_csv("data_load\\csv_offer_pages_parsed")
-
-
+import re
 import pandas as pd
-df2 = pd.read_csv("offer_page_parsed.csv")
+from py.utils.csv_utils import read_splitted_csv
+
+def contains_cyrillic(input_string):
+    return bool(re.compile('[\u0400-\u04FF]').search(input_string))
 
 
+def parse_author_type(x):
+    if pd.isna(x):
+        return None
+    
+    if not(eval(x)['isAgent']):
+        return 'owner'
 
-import hashlib
-hashlib.sha256(df.sort_values(by=df.columns.tolist()).reset_index(drop=True).to_csv(index=False).encode('utf-8')).hexdigest()
-hashlib.sha256(df2.sort_values(by=df2.columns.tolist()).reset_index(drop=True).to_csv(index=False).encode('utf-8')).hexdigest()
+    return eval(x)['accountType']
 
-author_info_all_keys = df['author_info'].dropna().apply(lambda x: eval(x).keys()).drop_duplicates()
+def eval_and_get_key(x, key, use_get = False):
+    
+    if use_get:
+        return eval(x).get(key) if not(pd.isna(x)) else None
+    
+    else:
+        return eval(x)[key] if not(pd.isna(x)) else None
 
+df = read_splitted_csv("data_load\\csv_search_page_parsed")
 
-df['author_type'] = df['author_info'].apply(lambda x: None 
-                                                      if pd.isna(x) 
-                                                      else 
-                                                          'owner' if not(eval(x)['isAgent'])
-                                                           else eval(x)['accountType']
-                                       )
+df['author_type'] = df['author_info'].apply(parse_author_type)
+df['probably_fraud'] = df['moderationInfo'].apply(contains_cyrillic)
 
-
-
-# Initialize an empty set
-unique_values = set()
-
-# Iterate over the Series and update the set with elements from each tuple
-for tup in author_info_all_keys:
-    unique_values.update(tup)
-
-
+df['rosreestrCheck'] = df['rosreestrCheck'].apply(lambda x: eval_and_get_key(x, 'status))
+df['parking'] = df['parking'].apply(lambda x: eval_and_get_key(x, 'type'))
+df['deadline_quarter']= df['deadline'].apply(lambda x: eval_and_get_key(x, 'quarterEnd'))
 
 df[['lat', 'lng']] = df['coordinates'].apply(eval).apply(pd.Series)
 
-df.columns
+utilities_map = {'includedInPrice': 'in_price', 'flowMetersNotIncludedInPrice': 'flow_not_in_price', 'price': 'price'}
+for key in utilities_map:
+    df[f"utilities_{utilities_map[key]}"]= df['utilitiesTerms'].apply(lambda x: eval_and_get_key(x, key, use_get = True))
 
-df[["url", "lat", "lng", "totalArea", "roomsCount", "livingArea", "kitchenArea", "floorNumber"]]
+reward_map = {'currency': 'currency', 'paymentType': 'payment_type', 'value': 'price'}
+for key in reward_map:
+    df[f"agent_reward_{reward_map[key]}"]= df['agentBonus'].apply(lambda x: eval_and_get_key(x, key, use_get = True))
+
+
+
+[ 
+"ad_deal_type",
+"url", 
+"creationDate",
+'author_type',
+"isApartments",
+"probably_fraud",
+
+"parsed_address", "lat", "lng", 
+
+"floor_number", "roomsCount", "loggiasCount", "balconiesCount",
+"totalArea", "livingArea", "kitchenArea",
+"decoration", "hasFurniture",
+
+"buildYear", "floorsCount", "materialType", 
+"passengerLiftsCount", "cargoLiftsCount",
+"demolishedInMoscowProgramm",
+
+"priceTotal", "currency", "sale_terms", "bargainAllowed", "mortgageAllowed",
+'utilities_price', 'utilities_in_price', 'utilities_flow_not_in_price', 
+
+'agent_reward_currency', 'agent_reward_payment_type', 'agent_reward_price', 'agentFee', 'deposit',
+
+'title', 'description',
+
+'isAuction', 'cian_price_range',
+
+"photo_url_list", "search_alias", "search_page_load_dttm"
+]
+
