@@ -3,6 +3,7 @@ from random import shuffle
 from py.constants.constants import DISTRICTS_LISTS, CIAN_SEARCH_URLS
 from py.parsing_funs.search_parsing_logic import try_parse_search
 from py.utils.utils import time_print, get_current_datetime, random_sleep
+from py.utils.csv_utils import append_df_to_splitted_csv, get_set_from_splitted_csv
 
 
 def get_search_url(deal_type, district):
@@ -51,18 +52,10 @@ def search_single_deal_type(deal_type, scraper, parsed_urls, progress_df):
         df['ad_deal_type'] =  deal_type
         parsed_urls = parsed_urls | set(df['url'])
 
-        df.to_csv("data_load\\search_page_parsed.csv", mode='a', header=False, index=False)
-        
-        (
-        pd.DataFrame({"search_alias": [search_alias], 
-                      "ad_deal_type":[deal_type]
-                     })
-           .to_csv("data_load\\search_parsing_progress.csv", 
-                    mode='a', 
-                    header=False, 
-                    index=False
-            )
-        )
+        append_df_to_splitted_csv(df, 'data_load\\csv_search_page_parsed', max_file_size_mb = 40, name_pattern = 'search_page_parsed'):
+
+        progress_df_upd = pd.DataFrame({"search_alias": [search_alias], "ad_deal_type":[deal_type]})
+        progress_df_upd.to_csv("data_load\\search_parsing_progress.csv", mode='a', header=False, index=False)
 
         n_parsed += 1
         time_print(f"already parsed: {round((n_parsed/len(search_dict))*100, 1)}%")
@@ -71,11 +64,11 @@ def search_single_deal_type(deal_type, scraper, parsed_urls, progress_df):
     time_print("------------------------------------------------------------------------------------------------------------------------------------------------------")
 
 def search_all_deals_type(scraper, deal_types_to_check = CIAN_SEARCH_URLS.keys()):
-    parsed_urls = set(pd.read_csv("data_load\\search_page_parsed.csv", usecols=['url'])['url'])
+    parsed_urls = get_set_from_splitted_csv("data_load\\csv_search_page_parsed", 'url')
     progress_df = pd.read_csv("data_load\\search_parsing_progress.csv")
 
     [search_single_deal_type(deal_type, scraper, parsed_urls, progress_df.query("ad_deal_type == @deal_type")) 
-    for deal_type in CIAN_SEARCH_URLS
-    if deal_type in deal_types_to_check
+     for deal_type in CIAN_SEARCH_URLS
+     if deal_type in deal_types_to_check
     ]
     pd.DataFrame({"search_alias": [], "ad_deal_type": []}).to_csv("data_load\\search_parsing_progress.csv", index= False)
