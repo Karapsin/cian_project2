@@ -9,15 +9,12 @@ def get_object_size(input_object):
 def mb_to_bytes(mb):
     return mb * 1024 * 1024
 
-def check_mb_constraint(input_object, mb):
-    return mb_to_bytes(mb) <= get_object_size(input_object)
-
 def get_df_hash(df):
     sorted_df = df.sort_values(by=df.columns.tolist())
     memory_df_obj = sorted_df.reset_index(drop=True).to_csv(index=False).encode('utf-8')
     return hashlib.sha256(memory_df_obj).hexdigest()
 
-def split_csv(input_file, output_folder, output_filename, max_file_size_mb=40, chunksize = 1):
+def split_csv(input_file, output_folder, output_filename, max_file_size_mb=40, chunksize = 1000):
 
     
     reader = pd.read_csv(input_file, chunksize=chunksize)
@@ -29,7 +26,7 @@ def split_csv(input_file, output_folder, output_filename, max_file_size_mb=40, c
         current_chunk = pd.concat([current_chunk, chunk])
 
         # if mb constraint is satisfied, we are going further
-        if check_mb_constraint(current_chunk, max_file_size_mb):
+        if get_object_size(current_chunk) <= mb_to_bytes(max_file_size_mb):
             continue
 
         file_path = os.path.join(output_folder, f"{output_filename}_{file_count}.csv")
@@ -38,7 +35,7 @@ def split_csv(input_file, output_folder, output_filename, max_file_size_mb=40, c
         file_count += 1
         current_chunk = pd.DataFrame()
 
-    # Save any remaining data in the last chunk
+    # save any remaining data in the last chunk
     if not current_chunk.empty:
         file_path = os.path.join(output_folder, f"{output_filename}_{file_count}.csv")
         current_chunk.to_csv(file_path, index=False)
@@ -71,16 +68,19 @@ def get_set_from_splitted_csv(input_folder, column):
 
 
 def df_to_splitted_csv(df, input_folder, name_pattern, max_file_size_mb):
-    save_path = os.path.join(input_folder, "{name_pattern}.csv")
+    save_path = os.path.join(input_folder, f"{name_pattern}.csv")
     df.to_csv(save_path, index = False)
-    split_csv(save_path, input_folder, name_pattern, max_file_size_mb, 1000)
+    split_csv(save_path, input_folder, name_pattern, max_file_size_mb)
     os.remove(save_path)
 
-def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_pattern = 'default_pattern'):
+def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_pattern = 'default_pattern', increment = 1000):
 
     csv_files = [f for f in os.listdir(input_folder) if f.endswith('.csv')]
     if not csv_files:
-        df_to_splitted_csv(df, input_folder, name_pattern, max_file_size_mb)
+        save_path = os.path.join(input_folder, f"{name_pattern}.csv")
+        df.to_csv(save_path, index = False)
+        split_csv(save_path, input_folder, name_pattern, max_file_size_mb, 1000)
+        os.remove(save_path)
 
         return 'finished'
 
@@ -97,7 +97,7 @@ def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_patt
 
     if available_space > 0:
         while get_object_size(df[:finish_index]) < available_space and finish_index < df_rows:
-            finish_index += 1
+            finish_index += increment
 
         pd.concat([latest_df, df[:finish_index]], ignore_index=True).to_csv(latest_file_path, index=False)
         df = df.iloc[finish_index:]
@@ -107,16 +107,15 @@ def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_patt
 
     df = df.iloc[finish_index:]
 
-    finish_index = 0
     next_file_num = latest_file_num + 1
     while True:
+        finish_index = 0
         df_rows = df.shape[0]
         while get_object_size(df[:finish_index]) < mb_to_bytes(max_file_size_mb) and finish_index < df_rows:
-            finish_index += 1
+            finish_index += increment
 
         output_file_path = os.path.join(input_folder, f"{name_pattern}_{next_file_num}.csv")
         df[:finish_index].to_csv(output_file_path, index=False)
-
         if finish_index == df_rows:
             break
 
@@ -124,3 +123,9 @@ def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_patt
         next_file_num += 1
 
     return 'finished'
+
+
+def clean_splitted_csv(input_folder):
+    for filename in os.listdir(input_folder):
+        file_path = os.path.join(input_folder, filename)
+        os.remove(file_path)

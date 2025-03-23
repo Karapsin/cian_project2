@@ -29,7 +29,7 @@ def clean_parsed_search_results(df):
     df['author_type'] = df['author_info'].apply(parse_author_type)
     df['probably_fraud'] = df['moderationInfo'].apply(contains_cyrillic)
 
-    df['rosreestrCheck'] = df['rosreestrCheck'].apply(lambda x: eval_and_get_key(x, 'status))
+    df['rosreestrCheck'] = df['rosreestrCheck'].apply(lambda x: eval_and_get_key(x, 'status'))
     df['parking'] = df['parking'].apply(lambda x: eval_and_get_key(x, 'type'))
     df['deadline_quarter']= df['deadline'].apply(lambda x: eval_and_get_key(x, 'quarterEnd'))
 

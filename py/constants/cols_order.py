@@ -8,7 +8,7 @@ clean_search_results_col_order = [
 
 "parsed_address", "lat", "lng", 
 
-"floor_number", "roomsCount", "loggiasCount", "balconiesCount",
+"floorNumber", "roomsCount", "loggiasCount", "balconiesCount",
 "totalArea", "livingArea", "kitchenArea",
 "decoration", "hasFurniture",
 

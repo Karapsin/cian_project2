@@ -52,7 +52,7 @@ def search_single_deal_type(deal_type, scraper, parsed_urls, progress_df):
         df['ad_deal_type'] =  deal_type
         parsed_urls = parsed_urls | set(df['url'])
 
-        append_df_to_splitted_csv(df, 'data_load\\csv_search_page_parsed', max_file_size_mb = 40, name_pattern = 'search_page_parsed'):
+        append_df_to_splitted_csv(df, 'data_load\\csv_search_page_parsed', max_file_size_mb = 40, name_pattern = 'search_page_parsed')
 
         progress_df_upd = pd.DataFrame({"search_alias": [search_alias], "ad_deal_type":[deal_type]})
         progress_df_upd.to_csv("data_load\\search_parsing_progress.csv", mode='a', header=False, index=False)
