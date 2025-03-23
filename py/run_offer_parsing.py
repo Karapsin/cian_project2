@@ -1,12 +1,18 @@
 from py.parsing_funs.offer_parsing import parse_offers
 from py.utils.SleepyScraper import SleepyScraper
-from py.utils.csv_utils import get_set_from_splitted_csv, get_set_from_splitted_csv
+from py.utils.csv_utils import (
+    get_set_from_splitted_csv, 
+    get_set_from_splitted_csv,
+    query_splitted_csv
+)
+from py.utils.bot_funs import send_telegram_message
 from random import shuffle
+import traceback
 import pandas as pd
+import os
 
 send_telegram_message("Starting offers parsing")
 urls_csv_path = "data_load\\offers_to_parse.csv"
-
 try:
     
     offers_to_parse = pd.read_csv(urls_csv_path)
@@ -18,13 +24,15 @@ try:
         pd.DataFrame({"url": []}).to_csv("data_load\\offers_parsed.csv", index = False)
         pd.DataFrame({"url": urls_to_parse}).to_csv(urls_csv_path, index = False)
 
-        search_df = query_splitted_csv("data_load\\csv_search_clean", "url in @urls_to_parse")
-        search_df.to_csv("data_load\\search_results_to_parse.csv", index = False)
+        search_df = query_splitted_csv("data_load\\csv_search_clean", "url in @urls_to_parse", urls_to_parse = urls_to_parse)
+        search_df.drop_duplicates(subset = "url").to_csv("data_load\\search_results_to_parse.csv", index = False)
 
 
-    parse_offers(SleepyScraper(mean_sleep = 2.8))
+    parse_offers(SleepyScraper(mean_sleep = 3))
 
     pd.DataFrame({"url": []}).to_csv(urls_csv_path, index = False)
+    pd.DataFrame({"url": []}).to_csv("data_load\\offers_parsed.csv", index = False)
+    os.remove("data_load\\search_results_to_parse.csv")
 
 except Exception as e:
     send_telegram_message("An error occured during offer page parisng:")

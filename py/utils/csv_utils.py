@@ -65,13 +65,13 @@ def get_set_from_splitted_csv(input_folder, column):
     
     return output_set
 
-def query_splitted_csv(input_folder, query_str):
+def query_splitted_csv(input_folder, query_str, **kwargs):
 
     csv_files = [file for file in os.listdir(input_folder) if file.endswith('.csv')]
     filtered_dfs_list = list()
     for file in csv_files:
         file_path = os.path.join(input_folder, file)
-        current_df = pd.read_csv(file_path).query(query_str)
+        current_df = pd.read_csv(file_path).query(query_str, local_dict=kwargs)
 
         filtered_dfs_list.append(current_df)
     

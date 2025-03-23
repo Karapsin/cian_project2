@@ -75,10 +75,11 @@ def filter_clean_data(df):
                                             ad_deal_type == @deal_type \
                                         and roomsCount == @room_number \
                                         and priceTotal >= @lower_price and priceTotal <= @upper_price \
-                                        and totalArea >= @lower_area and totalArea <= @upper_area 
+                                        and totalArea >= @lower_area and totalArea <= @upper_area \
+                                        and probably_fraud == False
                                    """
                              )
             
             filtered_dfs_list.append(filtered_df)
 
-    return pd.concat(filtered_dfs_list, ignore_index = True).drop_duplicates(subset=['url'])
+    return pd.concat(filtered_dfs_list, ignore_index = True).drop_duplicates(subset=['url']).drop('probably_fraud', axis = 1)

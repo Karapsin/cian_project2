@@ -22,7 +22,7 @@ def try_parse_offer_page(scraper, url, photos_url, deal_type, try_cnt = 0):
 
         if (is_con_error or is_key_agent_error) and try_cnt < 1:
             time_print("retrying after some sleep")
-            random_sleep(0.5, 5)
+            random_sleep(scraper.mean_sleep)
             return try_parse_offer_page(scraper, url, photos_url, deal_type, try_cnt = try_cnt + 1)
 
         time_print("no handling for this error")
@@ -33,7 +33,9 @@ def parse_offers(scraper):
     urls_to_parse = set(pd.read_csv("data_load\\offers_to_parse.csv")['url'])
     already_done = set(pd.read_csv("data_load\\offers_parsed.csv")['url'])
     search_df = pd.read_csv("data_load\\search_results_to_parse.csv")
-    for url in urls_to_parse:
+
+    urls_list = list(urls_to_parse) # urls_to_parse should can not be used within for loop, because it is change within it
+    for url in urls_list:
         
         if url in already_done:
             continue
@@ -41,13 +43,16 @@ def parse_offers(scraper):
         time_print(f"starting {url}")
         old_df = search_df.query("url == @url")
 
-        photos_url = list(eval(old_df['photo_url_list'].tolist()[0])) 
+        photos_url = list()
+        if len(old_df['photo_url_list']) > 0:
+            photos_url = list(eval(old_df['photo_url_list'].tolist()[0])) 
+
         new_df = try_parse_offer_page(scraper, url, photos_url, old_df['ad_deal_type'].to_list()[0])
         old_df['offer_page_load_dttm'] = get_current_datetime()
         for col in new_df.columns:
             
             new_value = new_df[col].to_list()[0]
-            if col in old.df.columns and (new_value is None or pd.isna(new_value)):
+            if col in old_df.columns and (new_value is None or pd.isna(new_value)):
                 continue
 
             old_df[col] = new_df[col].to_list()[0]

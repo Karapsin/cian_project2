@@ -1,0 +1,27 @@
+ad_deal_type,url,creationDate,author_type,isApartments,probably_fraud,parsed_address,lat,lng,floorNumber,roomsCount,loggiasCount,balconiesCount,totalArea,livingArea,kitchenArea,decoration,hasFurniture,buildYear,floorsCount,materialType,passengerLiftsCount,cargoLiftsCount,demolishedInMoscowProgramm,priceTotal,currency,sale_terms,bargainAllowed,mortgageAllowed,utilities_price,utilities_in_price,utilities_flow_not_in_price,agent_reward_currency,agent_reward_payment_type,agent_reward_price,agentFee,deposit,title,description,isAuction,cian_price_range,photo_url_list,search_alias,search_page_load_dttm,offer_page_load_dttm,isFromDeveloper,isFromBuilder,isFromSeller,isFromLeadFactory,parking,ceilingHeight,cranageTypes,houseMaterialType,entrances,flatCount,isEmergency,houseHeatSupplyType,houseOverhaulFundType,houseGasSupplyType,houseOverlapType,seriesName,lifts,editDate,externalOfferUrl,isIllegalConstruction,isCianPartner,repairType,windowsViewType,isPenthouse,flatType,isInHiddenBase,isObjectHidden,isClosedVisibility,videos,object_guid,wc_type,elevator_descr,today_views,total_views,price_history,seo_media_title_full,seo_media_title_short,seo_main_title,seo_descr,sidebar_info,ad_is_closed
+sale_secondary,https://www.cian.ru/sale/flat/268574588/,2021-12-31T08:38:44.517,specialist,True,False,"Москва, Шелепихинская набережная, 34к4",55.760965,37.513565,34,3,,,88.6,,,,,2023,37,,,,False,60000000,rur,free,,False,,,,,,,,,,"В современном жилом комплексе Сердце Столицы к продаже предлагаются ВИДОВЫЕ апартаменты, площадью 88,6 кв. м. ВИДЫ на набережную Москва-реки.
+
+ФУНКЦИОНАЛЬНАЯ ПЛАНИРОВКА выделяет: 
+- кухню-гостиную
+- 2 спальни
+- 1 санузел 
+- постирочную
+
+Выполнен ДИЗАЙНЕРСКИЙ ремонт, квартира оснащена всем необходимым для проживания. 
+Мебель и техника дорогостоящие. 
+
+Установлены системы Умный дом и ""Мультирум"", что позволяет с пульта или телефона управлять многими функциями.
+
+УСЛОВИЯ СДЕЛКИ: 
+ Все документы готовы 
+ Быстрый выход на сделку
+ Один взрослый собственник 
+
+О КОМПЛЕКСЕ:
+Жилой комплекс Сердце Столицы относится к классу Бизнес и Премиум, что отражено в высоком качестве строительства и в эффектной авторской архитектуре. Современная архитектура гармонично подчеркнута стильной отделкой утепленных фасадов, выполненной из клинкерной плитки, натурального мрамора и керамогранита.
+
+На территории ЖК располагается обустроенная креативная НАБЕРЕЖНАЯ МОСКВЫ РЕКИ со смотровой площадкой, скейт парком и амфитеатром у воды, а также парковая зона, где можно отдохнуть и перевести дух. 
+
+В проекте предусмотрено масштабное озеленение: огромное количество деревьев, кустарников и клумб украсят жилой квартал. На территории ЖК появится собственный пляж, причал и обустроенные места для различных активностей.
+
+На -2 уровне каждого дома расположены зоны для подъема габаритных грузов и стройматериалов, что позволяет проводить ремонт в жилых помещениях, не загрязняя подъезды.",False,,"['https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196194-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989136224-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196202-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196198-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989230856-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989230861-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196195-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196205-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196197-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196200-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989196204-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989206781-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989230860-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989167578-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989258267-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-1989218335-1.jpg', 'https://images.cdn-cian.ru/images/kvartira-moskva-shelepihinskaya-naberezhnaya-2065499560-1.jpg']",district%5B117%5D=130,2025-03-02 20:52,2025-03-24 00:27,False,False,False,False,{'type': 'underground'},,[],,,,,,,,,,,2025-02-27T17:46:15.797000+00:00,,False,False,design,yardAndStreet,,rooms,False,False,False,[],0b0417a1-8ffc-4585-b7e4-415d7466ba58,1 совмещенный,,0,6115,"[('2024-12-16T12:07:45.458457+00:00', 60000000)]","Продаются, 3-комнатные апартаменты, за 60 000 000 ₽, 88.6 м², этаж 34/37","Продаются, 3-комн. апарт., за 60 000 000 ₽","Продаю трехкомнатные апартаменты 88.6м² Шелепихинская наб., 34к1зд5, Москва, СЗАО, р-н Хорошево-Мневники м. Шелепиха - база ЦИАН, объявление 268574588","➜ Купите трехкомнатные апартаменты площадью 88.6м² Шелепихинская наб., 34к1зд5, Москва, СЗАО, р-н Хорошево-Мневники м. Шелепиха. Цена продажи - 60 000 000 руб. Недвижимость на ЦИАН - объявление 268574588","[{'title': 'Цена за метр', 'value': '677 201 ₽/м²'}, {'title': 'Условия сделки', 'value': 'свободная продажа'}]",False
