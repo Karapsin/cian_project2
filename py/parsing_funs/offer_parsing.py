@@ -1,23 +1,14 @@
 import pandas as pd
 import requests
+from random import shuffle
 from py.parsing_funs.offer_parsing_logic import parse_offer_page
+from py.utils.csv_utils import append_df_to_splitted_csv
 from py.utils.utils import(
      get_current_datetime, 
      random_sleep, 
      time_print
 )
 pd.options.mode.copy_on_write = True
-
-def robust_value_extraction(df, col):
-    return df.get(col, pd.Series([None])).tolist()[0]
-
-def combine_df(df_old, df_new):
-    for col in df_old.columns:
-        val1 = robust_value_extraction(df_old, col)
-        val2 = robust_value_extraction(df_new, col)
-        df_new[col] = val1 if val2 is None else val2
-    
-    return df_new  
 
 def try_parse_offer_page(scraper, url, photos_url, deal_type, try_cnt = 0):
     try:
@@ -37,21 +28,35 @@ def try_parse_offer_page(scraper, url, photos_url, deal_type, try_cnt = 0):
         time_print("no handling for this error")
         raise
 
+
 def parse_offers(scraper):
-    already_done = set(pd.read_csv("data_load\\offer_page_parsed.csv", usecols=['url'])['url'])
-    for old_df in pd.read_csv("data_load\\search_page_parsed.csv", chunksize=1):
+    urls_to_parse = set(pd.read_csv("data_load\\offers_to_parse.csv")['url'])
+    already_done = set(pd.read_csv("data_load\\offers_parsed.csv")['url'])
+    search_df = pd.read_csv("data_load\\search_results_to_parse.csv")
+    for url in urls_to_parse:
         
-        url = robust_value_extraction(old_df, 'url')
-        deal_type = robust_value_extraction(old_df, 'ad_deal_type')
         if url in already_done:
             continue
 
         time_print(f"starting {url}")
-        photos_url = set(eval(old_df['photo_url_list'].tolist()[0])) 
-        
-        new_df = try_parse_offer_page(scraper, url, photos_url, deal_type)
-        new_df['url'] = url
-        new_df['offer_page_load_dttm'] = get_current_datetime()
+        old_df = search_df.query("url == @url")
 
-        combine_df(old_df, new_df).to_csv("data_load\\offer_page_parsed.csv", mode='a', header=False, index=False)
+        photos_url = list(eval(old_df['photo_url_list'].tolist()[0])) 
+        new_df = try_parse_offer_page(scraper, url, photos_url, old_df['ad_deal_type'].to_list()[0])
+        old_df['offer_page_load_dttm'] = get_current_datetime()
+        for col in new_df.columns:
+            
+            new_value = new_df[col].to_list()[0]
+            if col in old.df.columns and (new_value is None or pd.isna(new_value)):
+                continue
+
+            old_df[col] = new_df[col].to_list()[0]
+
+        append_df_to_splitted_csv(old_df, "data_load\\csv_offer_pages_parsed", name_pattern = "offers_parsed")
+
         already_done.add(url)
+        pd.DataFrame({"url": list(already_done)}).to_csv("data_load\\offers_parsed.csv", index = False)
+
+        urls_to_parse.remove(url)
+        pd.DataFrame({"url": list(urls_to_parse)}).to_csv("data_load\\offers_to_parse.csv", index = False)
+

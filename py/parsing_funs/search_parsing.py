@@ -50,7 +50,7 @@ def search_single_deal_type(deal_type, scraper, parsed_urls, progress_df):
         df['search_alias'] = search_alias
         df['search_page_load_dttm'] = get_current_datetime()
         df['ad_deal_type'] =  deal_type
-        parsed_urls = parsed_urls | set(df['url'])
+        parsed_urls.update(set(df['url']))
 
         append_df_to_splitted_csv(df, 'data_load\\csv_search_page_parsed', max_file_size_mb = 40, name_pattern = 'search_page_parsed')
 

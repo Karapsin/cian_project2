@@ -1,7 +1,8 @@
 import re
 import pandas as pd
-from .constants.json_keys_lists import keys_meta_list
-from .utils.utils import (
+from random import shuffle
+from py.constants.json_keys_lists import keys_meta_list
+from py.utils.utils import (
     forced_mkdir,
     time_print,
     random_sleep,
@@ -24,7 +25,6 @@ def parse_offer_page(scraper,
     # get json which will be parsed further
     offer_json = load_offer_json(scraper, url, 'offer_page', path)
     single_ad_df = pd.DataFrame()
-    single_ad_df['url'] = url
 
     # just a shorthand notation to improve readability further 
     ad_data = offer_json['offerData']['offer']
@@ -56,7 +56,6 @@ def parse_offer_page(scraper,
         single_ad_df = add_json_values(single_ad_df, json, keys_list)
 
     single_ad_df['object_guid'] = offer_json['offerData']['offer']['objectGuid']
-    single_ad_df['coords'] = [str(ad_data['geo']['coordinates'])]
     
     #######################################################################################################
     # some values which needs to be parsed separately
@@ -65,18 +64,6 @@ def parse_offer_page(scraper,
     # we add it here
     if single_ad_df['buildYear'][0] is None and "bti" in offer_json['offerData']:
         single_ad_df['buildYear'] = offer_json['offerData']['bti']['houseData']['yearRelease']
-
-    # constructing address string from multiple keys in the ad_data['geo']['address']
-    parsed_address = ', '.join([x['fullName'] 
-                               for x 
-                               in ad_data['geo']['address']
-                               ]
-                          )
-
-    single_ad_df['parsed_address'] = [parsed_address]
-
-    # json is stored, we will analyze all of them once the data collection is finished
-    single_ad_df['author_info'] = str(offer_json['offerData']['agent'])
 
     # some inner jsons have the same structure, and hence
     # the parsing procedure is always the same
@@ -140,12 +127,12 @@ def parse_offer_page(scraper,
     time_print("starting photo load")
     forced_mkdir(f"{path}\\photos")
     if not(is_closed) and ad_data['photos'] is not None:
-        photos_urls = {x['fullUrl'] 
-                      for x 
-                      in ad_data['photos']
-                     }
+        photos_urls = [x['fullUrl'] for x in ad_data['photos']]
+        photos_urls.extend(search_photos_url)
+        shuffle(photos_urls)
 
-        photos_urls = photos_urls | search_photos_url
+        photos_url = set(photos_urls)
+        
     else:
         photos_urls = search_photos_url
     
@@ -158,7 +145,7 @@ def parse_offer_page(scraper,
                 current_image = scraper.get(photo_url)
                 file.write(current_image.content)
                 
-            random_sleep(-1, scraper.var_sleep)
+            random_sleep(scraper.mean_sleep, scraper.var_sleep)
 
     random_sleep(scraper.mean_sleep, scraper.var_sleep)
 

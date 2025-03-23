@@ -7,15 +7,6 @@
 # search page
 ######################################################################################################
 
-# needed to have consistent names in both data frames
-search_offer_cols_map = {"fullUrl": "url",
-                         "rentByPartsDescription": "isRentByParts",
-                         "isDuplicatedDescription": "isDuplicate",
-                         "userInput": "parsed_address",
-                         "user":"author_info",
-                         "saleType": "sale_terms",
-                         "price": "priceTotal"
-                        }
 # offer
 search_keys1 = ['demolishedInMoscowProgramm','fullUrl','isAuction','creationDate',
                 'hasFurniture','cadastralNumber','rentByPartsDescription','totalArea',
@@ -32,7 +23,7 @@ search_keys2 = ['userInput', 'coordinates', 'railways',
 
 
 # offer['building']
-search_keys3 = ['parking', 'type', 'passengerLiftsCount',
+search_keys3 = ['type', 'passengerLiftsCount',
                 'cargoLiftsCount', 'materialType', 'floorsCount',
                 'classType', 'buildYear', 'deadline'
                ]
@@ -71,9 +62,7 @@ keys_list3 = ['entrances', 'flatCount', 'isEmergency',
 # ad_data
 keys_list4 = [
                 'creationDate', 'editDate', 'externalOfferUrl', 'isIllegalConstruction',
-                'isCianPartner', 'isDuplicate', 'isUniqueCheckDate', 'isUniqueForCian',
-                'isUnique', 'moderationInfo', 'userTrustLevel', 'userTrust', 
-                'demolishedInMoscowProgramm', 'isRentByParts', 'priceTotal',
+                'isCianPartner', 'demolishedInMoscowProgramm', 'priceTotal',
                 'floorNumber', 'roomsCount', 'repairType', 'windowsViewType',
                 'totalArea', 'kitchenArea', 'isPenthouse', 'isApartments', 
                 'flatType', 'isInHiddenBase', 'isObjectHidden', 'isClosedVisibility',

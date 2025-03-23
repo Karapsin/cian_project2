@@ -1,4 +1,3 @@
-
 import pandas as pd
 import hashlib
 import os
@@ -60,11 +59,23 @@ def get_set_from_splitted_csv(input_folder, column):
     output_set = set()
     for file in csv_files:
         file_path = os.path.join(input_folder, file)
-        current_set = set(pd.read_csv(file_path, usecols=column)[column])
+        current_set = set(pd.read_csv(file_path, usecols=[column])[column])
 
         output_set.update(current_set)
     
     return output_set
+
+def query_splitted_csv(input_folder, query_str):
+
+    csv_files = [file for file in os.listdir(input_folder) if file.endswith('.csv')]
+    filtered_dfs_list = list()
+    for file in csv_files:
+        file_path = os.path.join(input_folder, file)
+        current_df = pd.read_csv(file_path).query(query_str)
+
+        filtered_dfs_list.append(current_df)
+    
+    return pd.concat(filtered_dfs_list, ignore_index = True)
 
 
 def df_to_splitted_csv(df, input_folder, name_pattern, max_file_size_mb):
