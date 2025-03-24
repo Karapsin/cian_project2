@@ -3,9 +3,9 @@ This repo contains scripts to parse data from the famous cian.ru. Below is the b
 # **py folder**
 
 This section describes python scripts. The main idea is that we have 5 layers of abstraction:
-1) layer 0: constants.
+1) constants (layer 0).
 2) functions/classes based on external libraries  (layer 1).
-3) functions which are loading and parsing state json (based on layer 1).
+3) functions which are loading and parsing state json (layer 2) (based on layer 1).
 4) functions to manage layer 2, i.e. which are telling which URL to parse and where to store it (layer 3) (based on layer 2).
 5) scripts which start parsing, report about errors and define state (layer 4).
 
