@@ -3,10 +3,13 @@ This repo contains scripts to parse data from the famous cian.ru. Below is the b
 # **py folder**
 
 The main idea is that we have 4 layers of abstraction:
+0) layer 0: constants
 1) functions/classes bases on external librarires
 2) functions which are loading and parsing state json (based on layer 1)
 3) functions to manage layer 2, i.e. which are telling which URL to parse and where to store it (based on layer 2)
 4) scripts which start parsing, report about errors and define state
+
+Below is the information about each folder and how it is related to every layer.
 
 - **constants**: contains some usefuls constants as well as some long lists/dicts/sets which are used by other scripts.
   
@@ -26,3 +29,4 @@ The main idea is that we have 4 layers of abstraction:
 - **run_search_parsing.py**: responsible for starting search page parsing and reporting about it.
 - **run_offer_parsing.py**: responsible for sampling of URL for offer parsing and reporting about it
           
+# **data_load folder**
