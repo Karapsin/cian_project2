@@ -36,7 +36,9 @@ This folder contains parsed data and stores the state of the unfinished parsing.
 - **csv_search_parsed**: splitted csv with the parsed data from the search pages. Later it is cleaned and reallocated to **csv_search_clean**.
 - **csv_search_clean**: splitted csv with the clean parsed data from the search pages. 
 - **csv_offer_pages_parsed**: splitted csv with the parsed offers data. TO DO: write a cleaning procedure for it once we have enough data.
+  
 - **long_rent_ads**, **short_rent_ads**, **sale_primary_ads**, **sale_secondary_ads**: contains photos, raw html and state json for each parsed offer
+  
 - **search_parsing_progress.csv**: contains districts and deal types for which information is parsed already at this search parsing iteration.
 - **offers_to_parse**: contains URL of offers to parse in this iteration of the offers parsing procedure.
 - **offers_parsed.csv**: contains URL of offers which are already parsed in this iteration of the offers parsing procedure
