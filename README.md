@@ -4,20 +4,20 @@ This repo contains scripts to parse data from the famous cian.ru. Below is the b
 
 This section describes python scripts. The main idea is that we have 5 layers of abstraction:
 1) layer 0: constants.
-2) functions/classes bases on external librarires (layer 1).
+2) functions/classes based on external libraries  (layer 1).
 3) functions which are loading and parsing state json (based on layer 1).
 4) functions to manage layer 2, i.e. which are telling which URL to parse and where to store it (layer 3) (based on layer 2).
 5) scripts which start parsing, report about errors and define state (layer 4).
 
 Below is the information about each folder and how it is related to every layer.
 
-- **constants**: contains some usefuls constants as well as some long lists/dicts/sets which are used by other scripts.
+- **constants**: contains some useful constants as well as some long lists/dicts/sets which are used by other scripts.
   
 - **utils**: contains functions/classes based on external libraries.
     - **SleepyScraper.py**: just a cloudscraper with some extra parameters related to the random sleep time. TO DO: add proxy support.
     - **bot_funs.py**: functions to send messages via telegram bot.
     - **csv_utils.py**: functions to manage so called "splitted csv", more on that later.
-    - **utils.py**: functions used mostly for convinient parsing.
+    - **utils.py**: functions used mostly for convenient parsing.
     - **data_cleaning_utils.py**: functions to clean and filter parsed data.
       
 - **parsing_funs**: functions to do parsing.
@@ -31,11 +31,11 @@ Below is the information about each folder and how it is related to every layer.
           
 # **data_load folder**
 
-This folder contains parsed data and stores state of the unfinished parsing. Some folders contain so called "splitted csv", i.e. single csv divided into multiple chunks to fit into the git repo. Functions from **py.utils.csv_utils.py** allow to manage it quite effectively by creating splitted csv from a single one, appending data or removing all chunks.
+This folder contains parsed data and stores the state of the unfinished parsing. Some folders contain so called "splitted csv", i.e. single csv divided into multiple chunks to fit into the git repo. Functions from **py.utils.csv_utils.py** allow to manage it quite effectively by creating splitted csv from a single one, appending data or removing all chunks.
 
 - **csv_search_parsed**: splitted csv with the parsed data from the search pages. Later it is cleaned and reallocated to **csv_search_clean**.
 - **csv_search_clean**: splitted csv with the clean parsed data from the search pages. 
-- **csv_offer_pages_parsed**: splitted csv with the parsed offers data. TO DO: write cleaning procedure for it once we have enough data.
+- **csv_offer_pages_parsed**: splitted csv with the parsed offers data. TO DO: write a cleaning procedure for it once we have enough data.
 - **long_rent_ads**, **short_rent_ads**, **sale_primary_ads**, **sale_secondary_ads**: contains photos, raw html and state json for each parsed offer
 - **search_parsing_progress.csv**: contains districts and deal types for which information is parsed already at this search parsing iteration.
 - **offers_to_parse**: contains URL of offers to parse in this iteration of the offers parsing procedure.
