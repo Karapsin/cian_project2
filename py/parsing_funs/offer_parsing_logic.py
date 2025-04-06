@@ -1,5 +1,6 @@
 import re
 import pandas as pd
+import asyncio
 from random import shuffle
 from py.constants.json_keys_lists import keys_meta_list
 from py.utils.utils import (
@@ -11,11 +12,12 @@ from py.utils.utils import (
     add_json_values
 )
 
-def parse_offer_page(scraper, 
-                     url, 
-                     search_photos_url,
-                     deal_type
-    ):
+async def parse_offer_page(scraper, 
+                           url, 
+                           search_photos_url,
+                           visited_before,
+                           deal_type
+          ):
 
     # creating a directory in which info about current url will be saved
     path = f"data_load\\{deal_type}_ads\\{get_url_based_name(url, 'data')}" 
@@ -122,6 +124,10 @@ def parse_offer_page(scraper,
     is_closed = ad_data['description'] == "Объявление снято с публикации, поищите ещё что-нибудь"
     single_ad_df['ad_is_closed'] = is_closed
 
+    # no need to load photos if it was visited before
+    if visited_before:
+        return single_ad_df
+
     #######################################################################################################
     # loading photos
     time_print("starting photo load")
@@ -130,8 +136,6 @@ def parse_offer_page(scraper,
         photos_urls = [x['fullUrl'] for x in ad_data['photos']]
         photos_urls.extend(search_photos_url)
         shuffle(photos_urls)
-
-        photos_url = set(photos_urls)
         
     else:
         photos_urls = search_photos_url
@@ -139,14 +143,13 @@ def parse_offer_page(scraper,
     def sanitize_filename(url):
         return re.sub(r'[<>:"/\\|?*]', '_', url)
 
+    photos_urls = set(photos_urls)
     if len(photos_urls) > 0:
         for photo_url in photos_urls:
             with open(f"{path}\\photos\\{sanitize_filename(photo_url)}", "wb") as file:
                 current_image = scraper.get(photo_url)
                 file.write(current_image.content)
                 
-            random_sleep(scraper.mean_sleep, scraper.var_sleep)
-
-    random_sleep(scraper.mean_sleep, scraper.var_sleep)
+            await random_sleep(0.5, 0.5, prefix = scraper.proxy.split("@", 1)[1])
 
     return single_ad_df

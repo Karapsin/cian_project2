@@ -28,6 +28,7 @@ def process_single_offer_card(offer):
 
     return single_ad_df
 
+
 def get_offer_json_and_max_page(scraper, url):
 
     offers_json = load_offer_json(scraper, url, 'search_page')['results']
@@ -37,7 +38,8 @@ def get_offer_json_and_max_page(scraper, url):
 
     return offers_json, max_page
 
-def parse_all_search_results(scraper, url):
+
+async def parse_all_search_results(scraper, url):
     offers_json, max_page = get_offer_json_and_max_page(scraper, url)
     if max_page == 0:
         time_print("nothing to parse")
@@ -56,23 +58,25 @@ def parse_all_search_results(scraper, url):
         if len(offers_json['offers']) == 0:
             break
 
-        current_page_df = pd.concat([process_single_offer_card(offer) 
-                                     for offer in offers_json['offers']
-                                    ], 
-                                    ignore_index=True
-                          )
+        df_list = [process_single_offer_card(offer) for offer in offers_json['offers']]
+        current_page_df = pd.concat(df_list, ignore_index=True)
+        
         page_df_list.append(current_page_df)
         time_print("finished")
 
-        random_sleep(scraper.mean_sleep, scraper.var_sleep)
+        await random_sleep(scraper.mean_sleep, scraper.var_sleep, prefix = scraper.proxy.split("@", 1)[1])
 
+    if len(page_df_list) == 0:
+        return None    
+    
     full_df = pd.concat(page_df_list, ignore_index=True)
     
     return full_df
 
-def try_parse_search(scraper, url):
+
+async def try_parse_search(scraper, url):
     try:
-        return parse_all_search_results(scraper, url)
+        return await parse_all_search_results(scraper, url)
 
     except ValueError as e:
         if str(e) != "max_page is higher than 54!":

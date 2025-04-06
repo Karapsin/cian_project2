@@ -2,16 +2,20 @@ import pandas as pd
 import hashlib
 import os
 
+
 def get_object_size(input_object):
     return input_object.memory_usage(deep=True).sum()
 
+
 def mb_to_bytes(mb):
     return mb * 1024 * 1024
+
 
 def get_df_hash(df):
     sorted_df = df.sort_values(by=df.columns.tolist())
     memory_df_obj = sorted_df.reset_index(drop=True).to_csv(index=False).encode('utf-8')
     return hashlib.sha256(memory_df_obj).hexdigest()
+
 
 def split_csv(input_file, output_folder, output_filename, max_file_size_mb=40, chunksize = 1000):
 
@@ -65,6 +69,7 @@ def get_set_from_splitted_csv(input_folder, column):
     
     return output_set
 
+
 def query_splitted_csv(input_folder, query_str, **kwargs):
 
     csv_files = [file for file in os.listdir(input_folder) if file.endswith('.csv')]
@@ -83,6 +88,7 @@ def df_to_splitted_csv(df, input_folder, name_pattern, max_file_size_mb):
     df.to_csv(save_path, index = False)
     split_csv(save_path, input_folder, name_pattern, max_file_size_mb)
     os.remove(save_path)
+
 
 def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_pattern = 'default_pattern', increment = 1000):
 
@@ -105,15 +111,17 @@ def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_patt
     
     df_rows = df.shape[0]
     finish_index = 0
-
     if available_space > 0:
-        while get_object_size(df[:finish_index]) < available_space and finish_index < df_rows:
+
+        while get_object_size(df.iloc[:finish_index]) < available_space and finish_index < df_rows:
             finish_index += increment
 
-        pd.concat([latest_df, df[:finish_index]], ignore_index=True).to_csv(latest_file_path, index=False)
+        updated_last_df = pd.concat([latest_df, df.iloc[:finish_index]], ignore_index=True)
+        updated_last_df.to_csv(latest_file_path, index=False)
+
         df = df.iloc[finish_index:]
 
-    if finish_index == df_rows:
+    if df.shape[0] == 0:
         return 'finished'
 
     df = df.iloc[finish_index:]
@@ -122,11 +130,12 @@ def append_df_to_splitted_csv(df, input_folder, max_file_size_mb = 40, name_patt
     while True:
         finish_index = 0
         df_rows = df.shape[0]
-        while get_object_size(df[:finish_index]) < mb_to_bytes(max_file_size_mb) and finish_index < df_rows:
+        while get_object_size(df.iloc[:finish_index]) < mb_to_bytes(max_file_size_mb) and finish_index < df_rows:
             finish_index += increment
 
         output_file_path = os.path.join(input_folder, f"{name_pattern}_{next_file_num}.csv")
-        df[:finish_index].to_csv(output_file_path, index=False)
+        new_chunk = df[:finish_index]
+        new_chunk.to_csv(output_file_path, index=False)
         if finish_index == df_rows:
             break
 

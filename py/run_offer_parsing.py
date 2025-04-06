@@ -1,38 +1,32 @@
-from py.parsing_funs.offer_parsing import parse_offers
-from py.utils.SleepyScraper import SleepyScraper
-from py.utils.csv_utils import (
-    get_set_from_splitted_csv, 
-    get_set_from_splitted_csv,
-    query_splitted_csv
-)
-from py.utils.bot_funs import send_telegram_message
+import asyncio
 from random import shuffle
 import traceback
 import pandas as pd
 import os
+import nest_asyncio
+
+from py.parsing_funs.offer_parsing import parse_offers
+from py.utils.SleepyScraper import SleepyScraper
+from py.utils.db_utils import insert_df, query_table, delete_from_table
+from py.utils.bot_funs import send_telegram_message
+from py.utils.utils import time_print
+
+nest_asyncio.apply()
 
 send_telegram_message("Starting offers parsing")
-urls_csv_path = "data_load\\offers_to_parse.csv"
 try:
-    
-    offers_to_parse = pd.read_csv(urls_csv_path)
-    if offers_to_parse.shape[0] == 0:
-        parsed_urls = list(get_set_from_splitted_csv("data_load\\csv_search_clean", column = "url"))
+    if query_table("offers_to_parse").empty:
+        time_print("sampling urls")
+        parsed_urls = query_table("search_clean", columns_dict = {"url": 1, "_id": 0})['url'].tolist()
+        parsed_urls = list(set(parsed_urls))
         shuffle(parsed_urls)
-        urls_to_parse = parsed_urls[:20_000]
+        urls_to_parse = parsed_urls[:50_000]
 
-        pd.DataFrame({"url": []}).to_csv("data_load\\offers_parsed.csv", index = False)
-        pd.DataFrame({"url": urls_to_parse}).to_csv(urls_csv_path, index = False)
+        insert_df(pd.DataFrame({"url": urls_to_parse}), "offers_to_parse")
 
-        search_df = query_splitted_csv("data_load\\csv_search_clean", "url in @urls_to_parse", urls_to_parse = urls_to_parse)
-        search_df.drop_duplicates(subset = "url").to_csv("data_load\\search_results_to_parse.csv", index = False)
+    asyncio.run(parse_offers(SleepyScraper(mean_sleep = 3)))
 
-
-    parse_offers(SleepyScraper(mean_sleep = 3))
-
-    pd.DataFrame({"url": []}).to_csv(urls_csv_path, index = False)
-    pd.DataFrame({"url": []}).to_csv("data_load\\offers_parsed.csv", index = False)
-    os.remove("data_load\\search_results_to_parse.csv")
+    delete_from_table("offers_to_parse")
 
 except Exception as e:
     send_telegram_message("An error occured during offer page parisng:")

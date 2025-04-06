@@ -2,6 +2,14 @@
 # processing involves checking A LOT OF keys, and when all of them written in the script,
 # readability falls drammatically
 # the following objects are helping to avoid that
+search_offer_cols_map = {"fullUrl": "url",
+                         "rentByPartsDescription": "isRentByParts",
+                         "isDuplicatedDescription": "isDuplicate",
+                         "userInput": "parsed_address",
+                         "user":"author_info",
+                         "saleType": "sale_terms",
+                         "price": "priceTotal"
+                        }
 
 ######################################################################################################
 # search page

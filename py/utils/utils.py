@@ -1,5 +1,3 @@
-from py.constants.constants import SEARCH_PAGE_JSON_TEMPLATE, OFFER_JSON_TEMPLATE
-from bs4 import BeautifulSoup
 import json as js
 import os 
 import pandas as pd
@@ -7,10 +5,12 @@ import datetime
 import random
 import time
 import shutil
+import asyncio
+from bs4 import BeautifulSoup
+from py.constants.constants import SEARCH_PAGE_JSON_TEMPLATE, OFFER_JSON_TEMPLATE
 
 def get_current_date(output='text'):
     return str(datetime.datetime.now())[0:10] if output=='text' else datetime.datetime.now()
-
 
 def get_current_datetime(output='text'):
     now = datetime.datetime.now()
@@ -30,12 +30,20 @@ def forced_mkdir(path):
         shutil.rmtree(path) 
         os.mkdir(path)
 
-def random_sleep(mean, var):
+async def random_sleep(mean, var, prefix = None, async_sleep = True):
     sleep_duration = random.normalvariate(mean, var)
-    sleep_duration = max(0.5, sleep_duration)
+    sleep_duration = max(max(random.normalvariate(0.5, 1), 0), sleep_duration)
 
-    time_print(f"sleeping for {sleep_duration:.2f} seconds")
-    time.sleep(sleep_duration)
+    str_print = f"sleeping for {sleep_duration:.2f} seconds"
+    if prefix is not None:
+        str_print = f"{prefix} {str_print}"
+
+    time_print(str_print)
+
+    if async_sleep:
+        await asyncio.sleep(sleep_duration)
+    else:
+        time.sleep(sleep_duration)
 
 def get_url_based_name(url, postfix):
     result = (url

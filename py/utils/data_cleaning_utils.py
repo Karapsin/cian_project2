@@ -28,10 +28,10 @@ def eval_and_get_key(x, key, use_get = False):
 def clean_parsed_search_results(df):
 
     df['author_type'] = df['author_info'].apply(parse_author_type)
-    df['probably_fraud'] = df['moderationInfo'].apply(contains_cyrillic)
+    df['probably_fraud'] = df['moderation_info_search'].apply(contains_cyrillic)
 
     df['rosreestrCheck'] = df['rosreestrCheck'].apply(lambda x: eval_and_get_key(x, 'status'))
-    df['parking'] = df['parking'].apply(lambda x: eval_and_get_key(x, 'type'))
+    #df['parking'] = df['parking'].apply(lambda x: eval_and_get_key(x, 'type'))
     df['deadline_quarter']= df['deadline'].apply(lambda x: eval_and_get_key(x, 'quarterEnd'))
 
     df[['lat', 'lng']] = df['coordinates'].apply(eval).apply(pd.Series)
@@ -51,6 +51,7 @@ def filter_clean_data(df):
 
     df = df[~pd.isna(df['roomsCount'])]
     df['roomsCount'] = df['roomsCount'].astype(int)
+    df['totalArea'] = df['totalArea'].astype(float)
 
     filtered_dfs_list = list()
     for deal_type in filtering_criterias:
