@@ -102,7 +102,10 @@ def search_all_deals_type(scraper,
         parsed_urls = set(parsed_urls['url'])
 
     more_parsed_urls = query_table("search_clean", columns_dict = {"url": 1, "_id": 0})
-    more_parsed_urls = set(more_parsed_urls['url'])
+    if more_parsed_urls.empty:
+        more_parsed_urls = set()
+    else:
+        more_parsed_urls = set(more_parsed_urls['url'])
 
     parsed_urls.update(more_parsed_urls)
 
