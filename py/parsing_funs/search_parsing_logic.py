@@ -94,11 +94,16 @@ async def try_parse_search(scraper, url):
 
         # if no errors on the previous step, we can proceed
         time_print("parsing district using the room based split")
-        def parse_short(url, single_filter):
+        async def parse_short(url, single_filter):
             time_print(f"parsing search results for filter {single_filter}")
-            return parse_all_search_results(scraper, url = f"{url}&{single_filter}")
+            res = await parse_all_search_results(scraper, url = f"{url}&{single_filter}")
+            return res
 
-        df_list = [parse_short(url, single_filter) for single_filter in room_filters]
+        df_list = list() 
+        for single_filter in room_filters:
+            res = await parse_short(url, single_filter)
+            df_list.append(res)
+            
         df = pd.concat(df_list, ignore_index=True)
 
         return df

@@ -11,7 +11,7 @@ pd.options.mode.copy_on_write = True
 send_telegram_message("Starting search pages parsing")
 try:
     
-    search_all_deals_type(SleepyScraper(mean_sleep = 10), districts_limit_per_deal_type = 20)
+    search_all_deals_type(SleepyScraper(mean_sleep = 10), districts_limit_per_deal_type = 20, deal_types_to_check= {'short_rent', 'secondary_sale', 'primary_sale'})
 
     df = query_table("search_page_parsed")
     clean_df = filter_clean_data(clean_parsed_search_results(df))
