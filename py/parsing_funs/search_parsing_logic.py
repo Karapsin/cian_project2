@@ -64,7 +64,7 @@ async def parse_all_search_results(scraper, url):
         page_df_list.append(current_page_df)
         time_print("finished")
 
-        await random_sleep(scraper.mean_sleep, scraper.var_sleep, prefix = scraper.proxy.split("@", 1)[1])
+        await random_sleep(scraper.mean_sleep, scraper.var_sleep, prefix = scraper.safe_proxy)
 
     if len(page_df_list) == 0:
         return None    

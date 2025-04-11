@@ -52,7 +52,6 @@ async def parse_single_district(semaphore,
 
             df = df.query('url not in @parsed_urls')
             if df.shape[0] == 0:
-                n_parsed += 1
                 time_print("no new ads for that district, going to the next one")
                 return None
 

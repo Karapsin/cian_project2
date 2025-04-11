@@ -9,9 +9,10 @@ class SleepyScraper:
 
     def get(self, url, **kwargs):
         if self.proxy:
+            self.safe_proxy = self.proxy.split("@", 1)[1]
             proxies = {
                 "http": f"http://{self.proxy}",
-                "https": f"http://{self.proxy}",
+             #   "https": f"http://{self.proxy}",
             }
             return self.scraper.get(url, proxies=proxies, **kwargs)
 

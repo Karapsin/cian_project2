@@ -5,7 +5,7 @@ import random
 from py.utils.utils import random_sleep
 
 def get_proxy_list():
-    return os.environ['PROXIES'].split(',\n')
+    return os.environ['PROXIES'].split(',')
 
 
 COOLDOWN_MEAN = 10
