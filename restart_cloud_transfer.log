@@ -1,0 +1,853 @@
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 85, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 65, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 57, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat316064238_2025-04-17/photos/https___images.cdn-cian.ru_images_2450168330-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat316064238_2025-04-17/photos/https___images.cdn-cian.ru_images_2450168330-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat316064238_2025-04-17 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat316064238_2025-04-17/photos/https___images.cdn-cian.ru_images_2450168330-1.jpg to cian_project_photos/saleflat316064238_2025-04-17/photos/https___images.cdn-cian.ru_images_2450168330-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 85, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 65, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 57, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat288381755_2025-04-19/photos/https___images.cdn-cian.ru_images_kvartira-moskva-izyumskaya-ulica-1758368804-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat288381755_2025-04-19/photos/https___images.cdn-cian.ru_images_kvartira-moskva-izyumskaya-ulica-1758368804-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat288381755_2025-04-19 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat288381755_2025-04-19/photos/https___images.cdn-cian.ru_images_kvartira-moskva-izyumskaya-ulica-1758368804-1.jpg to cian_project_photos/saleflat288381755_2025-04-19/photos/https___images.cdn-cian.ru_images_kvartira-moskva-izyumskaya-ulica-1758368804-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 85, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 65, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 57, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat315701960_2025-04-14/photos/https___images.cdn-cian.ru_images_2443090235-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat315701960_2025-04-14/photos/https___images.cdn-cian.ru_images_2443090235-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat315701960_2025-04-14 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat315701960_2025-04-14/photos/https___images.cdn-cian.ru_images_2443090235-1.jpg to cian_project_photos/saleflat315701960_2025-04-14/photos/https___images.cdn-cian.ru_images_2443090235-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 85, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 65, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 57, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat310924295_2025-04-18/photos/https___images.cdn-cian.ru_images_2343293744-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat310924295_2025-04-18/photos/https___images.cdn-cian.ru_images_2343293744-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat310924295_2025-04-18 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat310924295_2025-04-18/photos/https___images.cdn-cian.ru_images_2343293744-1.jpg to cian_project_photos/saleflat310924295_2025-04-18/photos/https___images.cdn-cian.ru_images_2343293744-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 85, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 65, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 57, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat315036441_2025-04-13/photos/https___images.cdn-cian.ru_images_2430021535-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat315036441_2025-04-13/photos/https___images.cdn-cian.ru_images_2430021535-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat315036441_2025-04-13 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat315036441_2025-04-13/photos/https___images.cdn-cian.ru_images_2430021535-1.jpg to cian_project_photos/saleflat315036441_2025-04-13/photos/https___images.cdn-cian.ru_images_2430021535-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 85, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 65, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 57, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449041835-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449041835-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat316004436_2025-04-18 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449023010-1.jpg to cian_project_photos/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449023010-1.jpg
+Uploading missing file data_load/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449023009-1.jpg to cian_project_photos/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449023009-1.jpg
+Uploading missing file data_load/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449023015-1.jpg to cian_project_photos/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449023015-1.jpg
+Uploading missing file data_load/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449062552-1.jpg to cian_project_photos/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449062552-1.jpg
+Uploading missing file data_load/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449041835-1.jpg to cian_project_photos/saleflat316004436_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vinokurova-2449041835-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 85, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 65, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 57, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437991-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437991-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat307545521_2025-04-13 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438006-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438006-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437991-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437991-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 81, in transfer_single_dir
+    upload_to_yadisk(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 30, in upload_to_yadisk
+    upload_single_file(root, file, local_path, remote_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 23, in upload_single_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438138-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438138-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat315079482_2025-04-13 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat315079482_2025-04-13/html_content.txt to cian_project_photos/saleflat315079482_2025-04-13/html_content.txt
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860839-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860839-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860505-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860505-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860259-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860259-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860911-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860911-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867805-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867805-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860364-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860364-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430868000-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430868000-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867999-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867999-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860489-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860489-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867998-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867998-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860508-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860508-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430868001-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430868001-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860707-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860707-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860838-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860838-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860735-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860735-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860712-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860712-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867985-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430867985-1.jpg
+Uploading missing file data_load/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860251-1.jpg to cian_project_photos/saleflat315079482_2025-04-13/photos/https___images.cdn-cian.ru_images_kvartira-moskva-4y-verhniy-mihaylovskiy-proezd-2430860251-1.jpg
+removing dir data_load/saleflat315079482_2025-04-13
+Transferring data_load/saleflat310924295_2025-04-18 to cian_project_photos/saleflat310924295_2025-04-18
+removing dir data_load/saleflat310924295_2025-04-18
+Transferring data_load/rentflat315932888_2025-04-13 to cian_project_photos/rentflat315932888_2025-04-13
+removing dir data_load/rentflat315932888_2025-04-13
+Transferring data_load/saleflat315036441_2025-04-13 to cian_project_photos/saleflat315036441_2025-04-13
+removing dir data_load/saleflat315036441_2025-04-13
+Transferring data_load/saleflat316004436_2025-04-18 to cian_project_photos/saleflat316004436_2025-04-18
+removing dir data_load/saleflat316004436_2025-04-18
+Transferring data_load/saleflat312374802_2025-04-20 to cian_project_photos/saleflat312374802_2025-04-20
+removing dir data_load/saleflat312374802_2025-04-20
+Transferring data_load/saleflat307545521_2025-04-13 to cian_project_photos/saleflat307545521_2025-04-13
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    else:
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 88, in transfer_single_dir
+    # Check and transfer missing files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/shutil.py", line 775, in rmtree
+    onexc(os.lstat, path, err)
+  File "/usr/lib/python3.12/shutil.py", line 773, in rmtree
+    orig_st = os.lstat(path, dir_fd=dir_fd)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data_load/saleflat307545521_2025-04-13'
+The directory cian_project_photos/saleflat307545521_2025-04-13 already exists on the remote side. Checking contents...
+removing dir data_load/saleflat307545521_2025-04-13
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 108, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 89, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 69, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 59, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010912763-1.jpg" уже существует. (Resource "disk:/cian_project_photos/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010912763-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/rentflat262746160_2025-04-20 already exists on the remote side. Checking contents...
+Uploading missing file data_load/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2011024669-1.jpg to cian_project_photos/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2011024669-1.jpg
+Uploading missing file data_load/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010990569-1.jpg to cian_project_photos/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010990569-1.jpg
+Uploading missing file data_load/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010909332-1.jpg to cian_project_photos/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010909332-1.jpg
+Uploading missing file data_load/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010914557-1.jpg to cian_project_photos/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010914557-1.jpg
+Uploading missing file data_load/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010912763-1.jpg to cian_project_photos/rentflat262746160_2025-04-20/photos/https___images.cdn-cian.ru_images_posutochnaja-kvartira-moskva-novodmitrovskaya-ulica-2010912763-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 108, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 89, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 69, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 59, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713832-1.jpg" уже существует. (Resource "disk:/cian_project_photos/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713832-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/rentflat315941746_2025-04-18 already exists on the remote side. Checking contents...
+Uploading missing file data_load/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713237-1.jpg to cian_project_photos/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713237-1.jpg
+Uploading missing file data_load/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713716-1.jpg to cian_project_photos/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713716-1.jpg
+Uploading missing file data_load/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447716613-1.jpg to cian_project_photos/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447716613-1.jpg
+Uploading missing file data_load/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713766-1.jpg to cian_project_photos/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713766-1.jpg
+Uploading missing file data_load/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713832-1.jpg to cian_project_photos/rentflat315941746_2025-04-18/photos/https___images.cdn-cian.ru_images_kvartira-moskva-ulica-vilisa-lacisa-2447713832-1.jpg
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 104, in transfer_missing_directories_and_files
+    else:
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 81, in transfer_single_dir
+    # Check if corresponding remote directory exists
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 30, in upload_to_yadisk
+    random.shuffle(shuffled_files)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 23, in upload_single_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554038-1.jpg" уже существует. (Resource "disk:/cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554038-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/saleflat307545521_2025-04-13 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437952-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437952-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438103-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438103-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438138-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438138-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438157-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438157-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438060-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438060-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438141-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438141-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437985-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437985-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438150-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438150-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438075-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438075-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437970-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437970-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437987-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437987-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438037-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438037-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437956-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437956-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438022-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438022-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438088-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438088-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437940-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391437940-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438014-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438014-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438046-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438046-1.jpg
+Uploading missing file data_load/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438034-1.jpg to cian_project_photos/saleflat307545521_2025-04-13/photos/https___images.cdn-cian.ru_images_2391438034-1.jpg
+removing dir data_load/saleflat307545521_2025-04-13
+Transferring data_load/saleflat314041032_2025-04-17 to cian_project_photos/saleflat314041032_2025-04-17
+removing dir data_load/saleflat314041032_2025-04-17
+Transferring data_load/rentflat262746160_2025-04-20 to cian_project_photos/rentflat262746160_2025-04-20
+removing dir data_load/rentflat262746160_2025-04-20
+Transferring data_load/rentflat315941746_2025-04-18 to cian_project_photos/rentflat315941746_2025-04-18
+removing dir data_load/rentflat315941746_2025-04-18
+Transferring data_load/saleflat312786174_2025-04-17 to cian_project_photos/saleflat312786174_2025-04-17
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/danila/cian_project/cian_project2/py/transfer_photos_to_yadisk.py", line 3, in <module>
+    transfer_missing_directories_and_files("data_load", "cian_project_photos")
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 108, in transfer_missing_directories_and_files
+    [transfer_single_dir(item, local_base_dir, remote_base_dir) for item in sampled_items]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 89, in transfer_single_dir
+    transfer_missing_files(local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 69, in transfer_missing_files
+    transfer_single_missing_file(file, root, local_dir_path, remote_dir_path)
+  File "/home/danila/cian_project/cian_project2/py/utils/yadisk_utils.py", line 59, in transfer_single_missing_file
+    ya_client.upload(local_file_path, remote_file_path)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1102, in upload
+    self._upload(self.get_upload_link, file_or_path, dst_path, **kwargs)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1060, in _upload
+    auto_retry(attempt, n_retries, retry_interval)
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 1027, in attempt
+    link = get_upload_link_function(dst_path, **temp_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_client.py", line 931, in get_upload_link
+    ).send(yadisk=self, then=_validate_link_response).href
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 241, in send
+    return auto_retry(
+           ^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/utils.py", line 167, in auto_retry
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/danila/cian_project/cian_project2/venv/lib/python3.12/site-packages/yadisk/_api/api_request.py", line 176, in _attempt
+    raise response.get_exception()
+yadisk.exceptions.PathExistsError: Ресурс "disk:/cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435597998-1.jpg" уже существует. (Resource "disk:/cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435597998-1.jpg" already exists. / DiskResourceAlreadyExistsError)
+The directory cian_project_photos/rentflat314598468_2025-04-20 already exists on the remote side. Checking contents...
+Uploading missing file data_load/rentflat314598468_2025-04-20/offer_meta.json to cian_project_photos/rentflat314598468_2025-04-20/offer_meta.json
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397574-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397574-1.jpg
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397570-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397570-1.jpg
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421302869-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421302869-1.jpg
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435596237-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435596237-1.jpg
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397573-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397573-1.jpg
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435596230-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435596230-1.jpg
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397575-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2421397575-1.jpg
+Uploading missing file data_load/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435597998-1.jpg to cian_project_photos/rentflat314598468_2025-04-20/photos/https___images.cdn-cian.ru_images_kvartira-moskva-letchika-oskanova-ulica-2435597998-1.jpg
+The directory cian_project_photos/saleflat312786174_2025-04-17 already exists on the remote side. Checking contents...
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554042-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554042-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382553978-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382553978-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554021-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554021-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554029-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554029-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554027-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554027-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554025-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554025-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554035-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554035-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554036-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554036-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554038-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554038-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554041-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554041-1.jpg
+Uploading missing file data_load/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554033-1.jpg to cian_project_photos/saleflat312786174_2025-04-17/photos/https___images.cdn-cian.ru_images_kvartira-moskva-proezd-beringov-2382554033-1.jpg
+removing dir data_load/saleflat312786174_2025-04-17
+Transferring data_load/rentflat286050405_2025-04-19 to cian_project_photos/rentflat286050405_2025-04-19
+removing dir data_load/rentflat286050405_2025-04-19
+Transferring data_load/rentflat314598468_2025-04-20 to cian_project_photos/rentflat314598468_2025-04-20
+removing dir data_load/rentflat314598468_2025-04-20
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer
+Activating virtual environment...
+Running the Python script...
+---------------------------------------------
+nothing to transfer

@@ -1,0 +1,20 @@
+#!/bin/bash
+cd /home/danila/cian_project/cian_project2
+
+# Step 0: Activate the virtual environment if not already active
+if [ -z "$VIRTUAL_ENV" ]; then
+    if [ -d "venv" ]; then
+        echo "Activating virtual environment..."
+        source venv/bin/activate
+    else
+        echo "Virtual environment not found. Exiting restart script."
+        exit 1
+    fi
+else
+    echo "Already in a virtual environment."
+fi
+
+# Step 2: Run the Python script
+echo "Running the Python script..."
+echo "---------------------------------------------"
+python3 -m py.transfer_photos_to_yadisk

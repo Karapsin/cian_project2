@@ -1,0 +1,60 @@
+#!/bin/bash
+cd /home/danila/cian_project/cian_project2
+
+echo "checking if offer parsing is running"
+
+# Step 0: Activate the virtual environment if not already active
+if [ -z "$VIRTUAL_ENV" ]; then
+    if [ -d "venv" ]; then
+        echo "Activating virtual environment..."
+        source venv/bin/activate
+    else
+        echo "Virtual environment not found. Exiting restart script."
+        exit 1
+    fi
+else
+    echo "Already in a virtual environment."
+fi
+
+echo "venv active"
+# Step 1: Check if the MongoDB Docker container is running; if not, start it
+if [ "$(docker inspect -f '{{.State.Running}}' mongodb)" != "true" ]; then
+    echo "Starting MongoDB Docker container..."
+    # Using sudo without password prompt due to sudoers config
+    sudo docker start mongodb
+else
+    echo "MongoDB Docker container is already running."
+fi
+
+echo "MongoDB container started"
+
+
+#Step 2: check if there are offers left to parse
+echo "checking if there are urls left to parse"
+DOC_COUNT=$(python3 - <<END
+from py.utils.db_utils import count_entries
+collection_name = "offers_to_parse"
+print(count_entries(collection_name))
+END
+)
+
+if [ "$DOC_COUNT" -eq 0 ]; then
+    echo "No entries found in the collection. Exiting restart script."
+    echo "---------------------------------------------"
+        exit 0
+fi
+
+echo "There are $DOC_COUNT offers left."
+
+
+# Step 3: Check if the Python script is already running
+if pgrep -f "python3 -m py.run_offer_parsing" > /dev/null; then
+    echo "The Python script is already running. Exiting restart script."
+    echo "---------------------------------------------"
+    exit 0
+fi
+
+# Step 4: Run the Python script
+echo "Running the Python script..."
+echo "---------------------------------------------"
+python3 -m py.run_offer_parsing
