@@ -30,7 +30,7 @@ echo "MongoDB container started"
 
 # Step 2: Check if the Python script is already running
 echo "checking if offer parsing is running"
-if pgrep -f "python3 -m py.run_offer_parsing" > /dev/null; then
+if pgrep -f "python3 -m py.run_search_parsing" > /dev/null; then
     echo "The Python script is already running. Exiting restart script."
     echo "---------------------------------------------"
     exit 0
@@ -39,4 +39,4 @@ fi
 # Step 3: Run the Python script
 echo "Running the Python script..."
 echo "---------------------------------------------"
-python3 -m py.run_offer_parsing
+python3 -m py.run_search_parsing

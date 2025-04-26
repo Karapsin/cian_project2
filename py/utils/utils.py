@@ -16,6 +16,16 @@ def get_current_datetime(output='text'):
     now = datetime.datetime.now()
     return now.strftime('%Y-%m-%d %H:%M') if output == 'text' else now
 
+def dttm_to_seconds(dttm):
+    if isinstance(dttm, str):
+        dttm = datetime.datetime.strptime(dttm, '%Y-%m-%d %H:%M')
+    return time.mktime(dttm.timetuple())
+
+def days_between_dttms(dttm1, dttm2):
+    seconds = abs(dttm_to_seconds(dttm1) - dttm_to_seconds(dttm2))
+    seconds_in_day = 60*60*24
+    return seconds/seconds_in_day
+
 def time_print(string):
     return print((get_current_datetime()+' '+string))
 

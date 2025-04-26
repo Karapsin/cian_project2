@@ -1,5 +1,6 @@
 import pymongo as pm
 import pandas as pd
+from py.utils.utils import get_current_datetime, dttm_to_seconds
 
 DB_URI = "mongodb://localhost:27017/"
 DB_NAME = "cian_project"
@@ -33,3 +34,12 @@ def count_entries(table_name):
         entries = connection[DB_NAME][table_name].count_documents({})
     
     return entries
+
+def update_finish_dttm(parsing_type):
+    delete_from_table("parsing_finish_dttms", {"parsing_type": parsing_type})
+    df = pd.DataFrame({"parsing_type": parsing_type, "last_finish_dttm": get_current_datetime()}, index = [0])
+    insert_df(df, "parsing_finish_dttms")
+    
+
+def get_finish_dttm(parsing_type):
+    return query_table('parsing_finish_dttms', {"parsing_type": parsing_type})['last_finish_dttm'][0]
