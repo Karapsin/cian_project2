@@ -39,9 +39,9 @@ def run_parsing():
 
     send_telegram_message("Search pages parsing is finished")
 
-if days_between_dttms(get_finish_dttm('search'), get_current_datetime()) >= 7:
+if days_between_dttms(get_finish_dttm('search'), get_current_datetime()) >= 3:
     pd.options.mode.copy_on_write = True
     run_parsing()
 else:
-    time_print("waiting for 7 days to pass...")
+    time_print("waiting for 3 days to pass...")
     time.sleep(60*60*5)
