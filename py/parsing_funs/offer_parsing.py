@@ -118,4 +118,3 @@ async def parse_offers(scraper):
     tasks = [parse_single_url(semaphore, scraper, url, url in all_visited) for url in urls_to_parse]
 
     await asyncio.gather(*tasks)
-    

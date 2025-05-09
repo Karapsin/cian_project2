@@ -62,7 +62,8 @@ async def parse_offer_page(scraper,
     # if we failed to get a buildYear at the previous step
     # we add it here
     if single_ad_df['buildYear'][0] is None and "bti" in offer_json['offerData']:
-        single_ad_df['buildYear'] = offer_json['offerData']['bti']['houseData']['yearRelease']
+        house_data = offer_json['offerData']['bti']['houseData'] 
+        single_ad_df['buildYear'] = house_data['yearRelease'] if 'yearRelease' in house_data else None
 
     # some inner jsons have the same structure, and hence
     # the parsing procedure is always the same

@@ -8,6 +8,7 @@ mkdir -p /home/danila/cian_project/database_backup
 
 echo "Copying database from Docker container..."
 sudo /usr/local/bin/copy_cian_database.sh
+sleep 300
 
 # Set ownership and permissions for the backup directory
 echo "Setting permissions for the backup directory..."

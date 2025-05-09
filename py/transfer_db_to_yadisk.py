@@ -1,17 +1,13 @@
+from py.utils.utils import get_current_date
 from py.utils.yadisk_utils import( 
-    copy_cloud_directory,
     force_create_empty_cloud_dir, 
     upload_to_yadisk
 )
 
-cloud_path = "database/db_backup"
+
+cloud_path = f"database/db_backup_{get_current_date().replace('-', '_')}"
 local_path = "/home/danila/cian_project/database_backup"
 
-
-
-print("Saving previous backup")
-force_create_empty_cloud_dir("database/old_db_backup")
-copy_cloud_directory(cloud_path, "database/old_db_backup")
 
 print("Removing old copy")
 force_create_empty_cloud_dir(cloud_path)

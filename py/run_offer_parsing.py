@@ -27,8 +27,10 @@ def run_parsing():
     try:
         if query_table("offers_to_parse").empty:
             time_print("sampling urls")
+            closed_urls = set(query_table('offers_parsed', query_dict={'ad_is_closed': True}, columns_dict={'url': 1, '_id': 0})['url'])
+
             parsed_urls = query_table("search_clean", columns_dict = {"url": 1, "_id": 0})['url'].tolist()
-            parsed_urls = list(set(parsed_urls))
+            parsed_urls = list(set(parsed_urls) - closed_urls) 
             shuffle(parsed_urls)
             urls_to_parse = parsed_urls[:50_000]
 
