@@ -32,7 +32,7 @@ def clean_parsed_search_results(df):
 
     df['rosreestrCheck'] = df['rosreestrCheck'].apply(lambda x: eval_and_get_key(x, 'status'))
     #df['parking'] = df['parking'].apply(lambda x: eval_and_get_key(x, 'type'))
-    df['deadline_quarter']= df['deadline'].apply(lambda x: eval_and_get_key(x, 'quarterEnd'))
+    df['deadline_quarter']= df['deadline'].apply(lambda x: eval_and_get_key(x, 'quarterEnd', True))
 
     df[['lat', 'lng']] = df['coordinates'].apply(eval).apply(pd.Series)
 

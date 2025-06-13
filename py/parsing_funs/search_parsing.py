@@ -67,6 +67,10 @@ async def parse_single_district(semaphore,
             progress_df_upd = pd.DataFrame({"search_alias": [search_alias], "ad_deal_type":[deal_type]})
             insert_df(progress_df_upd, "search_parsing_progress")
 
+        except Exception as e:
+            time_print(f"error with {proxy}, url {url}, error text{str(e)}")
+            raise
+
         finally:
             await release_proxy(proxy)
 
