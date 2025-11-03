@@ -2,7 +2,7 @@ import pymongo as pm
 import pandas as pd
 from py.utils.utils import get_current_datetime, dttm_to_seconds
 
-DB_URI = "mongodb://localhost:27018/"
+DB_URI = "mongodb://localhost:27017/"
 DB_NAME = "cian_project"
 
 def insert_df(df, table_name):

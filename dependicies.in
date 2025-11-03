@@ -1,0 +1,14 @@
+bs4==0.0.2
+cloudscraper==1.2.71
+httpx==0.28.1
+importlib-metadata==8.0.0
+jaraco.collections==5.1.0
+nest-asyncio==1.6.0
+packaging==24.2
+pandas==2.3.3
+pip-chill==1.0.3
+platformdirs==4.2.2
+pymongo==4.15.2
+python-dotenv==1.1.1
+tomli==2.0.1
+yadisk==3.4.0

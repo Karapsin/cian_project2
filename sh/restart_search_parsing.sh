@@ -6,7 +6,7 @@ cd /home/kardinal/projects/cian
 if [ -z "$VIRTUAL_ENV" ]; then
     if [ -d "venv" ]; then
         echo "Activating virtual environment..."
-        source venv/bin/activate
+        source .venv/bin/activate
     else
         echo "Virtual environment not found. Exiting restart script."
         exit 1
