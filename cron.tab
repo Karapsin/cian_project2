@@ -1,0 +1,15 @@
+###################################################################################################
+# ---- project-specific crontab for /home/kardinal/projects/cian ----
+
+# Every 5 min: restart_offer_parsing
+*/5 * * * * /usr/bin/env bash /home/kardinal/projects/cian/sh/restart_offer_parsing.sh >>/home/kardinal/projects/cian/logs/restart_offer_parsing.log 2>&1
+
+# Every minute: restart_cloud_transfer
+* * * * * /usr/bin/env bash /home/kardinal/projects/cian/sh/restart_cloud_transfer.sh >>/home/kardinal/projects/cian/logs/restart_cloud_transfer.log 2>&1
+
+# Fridays 10:00: copy_db_to_cloud
+0 10 * * 5 /usr/bin/env bash /home/kardinal/projects/cian/sh/copy_db_to_cloud.sh >>/home/kardinal/projects/cian/logs/copy_db_to_cloud.log 2>&1
+
+# Every 5 min: restart_search_parsing
+*/5 * * * * /usr/bin/env bash /home/kardinal/projects/cian/sh/restart_search_parsing.sh >>/home/kardinal/projects/cian/logs/restart_search_parsing.log 2>&1
+###################################################################################################
